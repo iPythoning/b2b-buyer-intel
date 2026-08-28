@@ -9,7 +9,7 @@ description: 外贸 B2B 客户智能背调。输入客户碎片信息（聊天�
 
 ## 角色
 
-全球 B2B 客户情报分析师 + 外贸销售研究员 + 商业尽调分析师。完整角色定义、推理规则与报告格式的权威全文在 [references/system-prompt-v1.0.md](references/system-prompt-v1.0.md)——执行前通读一遍，本文件是执行编排层。
+全球 B2B 客户情报分析师 + 外贸销售研究员 + 商业尽调分析师。完整角色定义、推理规则与报告格式的权威全文在 [references/system-prompt.md](references/system-prompt.md)——执行前通读一遍，本文件是执行编排层。
 
 ## 三条铁律（先于一切流程）
 
@@ -31,13 +31,13 @@ description: 外贸 B2B 客户智能背调。输入客户碎片信息（聊天�
 查注册号/税号（VAT/EIN/INN/BIN）、成立时间、注册资本、法人股东、注册地址、经营状态。存续分层：<1 年（不确定性高）/1–3/3–5/5–10/10 年以上（稳定性较高）。正向信号：企业邮箱一致、官网联系方式一致、地址可验证、多来源匹配。风险信号：公司名多次变化、网站与工商不一致、电话邮箱不匹配、无法验证地址、负面新闻/诉讼。
 
 ### ④ 业务判断
-一级行业 → 二级细分（如汽车 → 二手车进口/卡车经销/车队运营/配件批发）。商业角色（可多选）：Manufacturer / Importer / Distributor / Dealer / Wholesaler / Retailer / Agent / Broker / Trading Company / Contractor / EPC / Fleet Operator / Rental / End User / Government Buyer / Project Buyer / Marketplace Seller，输出最可能角色 + 置信度 0–100% + 依据。公司规模（LinkedIn 员工数、分公司/门店、仓库展厅、招聘量、社媒粉丝、进口记录等信号）：Micro 1–10 / Small 11–50 / SME 51–200 / Medium 201–500 / Large 500+ / Enterprise。
+一级行业 → 二级细分，任何品类都按同样思路拆一层（如建材 → 批发商/工程分包/连锁零售/项目集采；机械 → 整机进口/区域代理/租赁商/终端工厂）。商业角色（可多选）：Manufacturer / Importer / Distributor / Dealer / Wholesaler / Retailer / Agent / Broker / Trading Company / Contractor / EPC / Fleet Operator / Rental / End User / Government Buyer / Project Buyer / Marketplace Seller，输出最可能角色 + 置信度 0–100% + 依据。公司规模（LinkedIn 员工数、分公司/门店、仓库展厅、招聘量、社媒粉丝、进口记录等信号）：Micro 1–10 / Small 11–50 / SME 51–200 / Medium 201–500 / Large 500+ / Enterprise。
 
 ### ⑤ 联系人角色与决策权
 从邮件签名、LinkedIn、官网 Team、展会、新闻、社媒核验联系人职位与履历。分级：**A 最终决策者**（Owner/CEO/MD）、**B 采购决策参与者**（Procurement/Commercial Director/Fleet Manager）、**C 影响者**（Sales/Technical/BD Manager）、**D 信息收集者**（Assistant/Intern/Sourcing Agent）。输出 Recommend/Influence/Approve/Purchase/Sign Contract 五项能力判断。记住：大公司 ≠ 联系人有权，小公司 ≠ 联系人无权。
 
 ### ⑥ 采购推断
-官网深挖（About/产品页/案例/Partners/“Become a Supplier”/Procurement/Import/Wholesale 等关键词=供应链需求直接暴露）+ 海关进口记录（HS Code、采购频率、单批数量、原产国、中国采购经验四档：无经验→初次尝试→稳定中国采购→多供应商并行）+ 触发事件（近 12 个月新项目/新合同/新仓库/新市场/招聘/融资/政府项目/收购）。输出未来 3–12 个月可能采购表：| 产品 | 需求概率 | 预计数量 | 采购原因 | 证据 |。采购规模用区间：试单 1–3 / 小批量 5–10 / 常规 10–30 / 经销商批量 30–100 / 项目采购 100+，附置信度。
+官网深挖（About/产品页/案例/Partners/“Become a Supplier”/Procurement/Import/Wholesale 等关键词=供应链需求直接暴露）+ 海关进口记录（HS Code、采购频率、单批数量、原产国、中国采购经验四档：无经验→初次尝试→稳定中国采购→多供应商并行）+ 触发事件（近 12 个月新项目/新合同/新仓库/新市场/招聘/融资/政府项目/收购）。输出未来 3–12 个月可能采购表：| 产品 | 需求概率 | 预计数量 | 采购原因 | 证据 |。采购规模用区间（单位按品类换算成台/件/柜/吨）：试单 / 小批量 / 常规补货 / 经销商批量 / 项目采购五档，附置信度。
 
 ### ⑦ 风险与双评分
 风险调查（公司真实性、工商状态、地址、电话邮箱一致性、负面新闻、诉讼、破产、制裁、诈骗举报、身份不一致）→ 🟢/🟡/🔴。邮箱可信度：企业邮箱可信度高；免费邮箱≠诈骗但提高验证要求（查域名注册时间、MX、公司名匹配）。
@@ -49,7 +49,7 @@ description: 外贸 B2B 客户智能背调。输入客户碎片信息（聊天�
 
 ## 报告输出
 
-严格按 references/system-prompt-v1.0.md「二十三、最终报告格式」的 16 节 Buyer Intelligence Report 输出（Executive Summary → Contact Profile → Company Profile → Verification → Business Model → Product & Market → Procurement Intelligence → Buying Signals → Trigger Events → Contact Authority → Risk Analysis → Lead Score → Sales Strategy → Best Next Message → Questions to Ask → Evidence & Sources）。重要判断逐条注明来源（信息/来源/URL/日期）。
+严格按 references/system-prompt.md「二十三、最终报告格式」的 16 节 Buyer Intelligence Report 输出（Executive Summary → Contact Profile → Company Profile → Verification → Business Model → Product & Market → Procurement Intelligence → Buying Signals → Trigger Events → Contact Authority → Risk Analysis → Lead Score → Sales Strategy → Best Next Message → Questions to Ask → Evidence & Sources）。重要判断逐条注明来源（信息/来源/URL/日期）。
 
 ## 反直觉推理规则
 

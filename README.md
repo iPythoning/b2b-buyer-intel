@@ -38,15 +38,15 @@ mkdir -p ~/.claude/skills && ln -s "$(pwd)/b2b-buyer-intel" ~/.claude/skills/b2b
 
 ### 方式二：任意 AI 工具（ChatGPT / DeepSeek / Kimi / 豆包……）
 
-把 [`references/system-prompt-v1.0.md`](references/system-prompt-v1.0.md) 全文作为系统提示词或对话开头贴入，再提交客户信息即可。允许联网的模型效果最好。
+把 [`references/system-prompt.md`](references/system-prompt.md) 全文作为系统提示词或对话开头贴入，再提交客户信息即可。允许联网的模型效果最好。
 
 ### 输入示例
 
 ```
 帮我背调这个客户：
-- WhatsApp: +998 9x xxx xxxx
-- 邮箱: alisher@xxxtrade.uz
-- 聊天记录: "Hi, I need price for 10 units sinotruk howo 400hp, CIF Tashkent..."
+- WhatsApp: +52 1 xx xxxx xxxx
+- 邮箱: carlos@xxximport.mx
+- 聊天记录: "Hi, do you have stock for model X? Need CIF price to Veracruz, quantity around 2 containers..."
 ```
 
 ### 输出
@@ -58,6 +58,10 @@ mkdir -p ~/.claude/skills && ln -s "$(pwd)/b2b-buyer-intel" ~/.claude/skills/b2b
 - **事实、推断、未知严格分层**：所有结论标注【已验证事实】/【高概率推断】/【未知】，绝不把推测写成事实
 - **多源交叉验证**：重要信息至少 2 个来源，工商数据库 > 官网 > LinkedIn > 海关数据 > ……
 - **拒绝废话建议**：不输出"保持联系、继续跟进"，只输出具体到话术和资料清单的动作
+
+## 适用品类
+
+工作流本身行业无关——机械设备、建材、化工、消费电子、纺织服装、汽车及配件、医疗器械、食品……任何外贸 B2B 品类都适用，把示例中的产品换成你自己的即可。
 
 ## 关于派宝外贸智能体
 
