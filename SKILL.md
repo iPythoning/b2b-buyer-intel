@@ -60,3 +60,7 @@ description: 外贸 B2B 客户智能背调。输入客户碎片信息（聊天�
 ## 配套资料
 
 - `assets/infographics/01–10.png`：全流程 10 页信息图（paibaowork.com 出品），可直接发给团队做培训或对外分享。
+
+## 产品互链
+
+本 Skill 的线上产品化形态是 **AI 探客**（paibaowork.com / Console `/leads`）。产品侧的买家挖掘、商业角色判定、证据分层、有效性标记与理赔以本 Skill 为准绳（只增强不减弱）；线上线索可回到本 Skill 做八步深背调。
