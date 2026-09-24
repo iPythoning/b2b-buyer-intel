@@ -63,9 +63,11 @@ mkdir -p ~/.claude/skills && ln -s "$(pwd)/b2b-buyer-intel" ~/.claude/skills/b2b
 
 工作流本身行业无关——机械设备、建材、化工、消费电子、纺织服装、汽车及配件、医疗器械、食品……任何外贸 B2B 品类都适用，把示例中的产品换成你自己的即可。
 
-## 关于派宝外贸智能体
+## 产品互链
 
-[paibaowork.com](https://paibaowork.com) 为外贸企业提供 AI 数字员工：客户背调、询盘分析、WhatsApp 智能跟单、GEO/SEO 获客。
+本 Skill 的线上产品化形态是 **AI 探客**（[paibaowork.com](https://paibaowork.com) / Console `/leads`）：同类产品买家挖掘、商业角色判定（买家/经销商/同行）、证据分层、决策人分级、有效性标记与理赔，均以本 Skill 的八步工作流与三条铁律为准绳——产品能力只在其上增强，不弱于它。线上挖到线索后，可回到本 Skill 做八步深背调。
+
+## 关于派宝外贸智能体
 
 - 🌐 官网：https://paibaowork.com
 - 💬 WhatsApp：https://wa.me/8615810959875
